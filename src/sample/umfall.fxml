@@ -35,9 +35,9 @@
       </menus>
     </MenuBar>
     <ImageView fitHeight="403.87126681122686" fitWidth="367.4864501953125" layoutX="151.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-        <Image url="file:/C:\Users\puruckel\IdeaProjects\SoftEngi1\src\Package-Axis.png" />
-      </image>
+         <image>
+            <Image url="@drawable/Package-Axis.png" />
+         </image>
     </ImageView>
     <TextField layoutX="68.0" layoutY="453.0" prefWidth="136.0" promptText="Width" />
     <Label layoutX="68.0" layoutY="430.0" text="Width">
@@ -70,7 +70,7 @@
         <Label font="$x2" layoutX="14.0" layoutY="14.0" text="Result" underline="false" wrapText="false" />
         <ImageView fitHeight="97.21875" fitWidth="136.0" layoutX="423.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
           <image>
-            <Image url="file:/C:\Users\puruckel\IdeaProjects\SoftEngi1\src\dhl.png" />
+            <Image url="@drawable/dhl.png" />
           </image>
         </ImageView>
         <TextField layoutX="64.0" layoutY="162.0" prefHeight="141.951171875" prefWidth="445.0" promptText="Inc. Result" style="-fx-background-color : #ECECEC;" />
@@ -78,7 +78,7 @@
     </Pane>
     <ImageView fitHeight="49.00001525878906" fitWidth="74.99999237060547" layoutX="204.0" layoutY="180.0" pickOnBounds="true" preserveRatio="false">
       <image>
-        <Image url="file:/C:\Users\puruckel\IdeaProjects\SoftEngi1\src\weight.png" />
+        <Image url="@drawable/weight.png" />
       </image>
     </ImageView>
   </children>

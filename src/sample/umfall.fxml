@@ -73,7 +73,7 @@
             <Image url="@drawable/dhl.png" />
           </image>
         </ImageView>
-        <TextField layoutX="64.0" layoutY="162.0" prefHeight="141.951171875" prefWidth="445.0" promptText="Inc. Result" style="-fx-background-color : #ECECEC;" />
+        <TextField disable="true" layoutX="64.0" layoutY="162.0" prefHeight="141.951171875" prefWidth="445.0" promptText="Inc. Result" style="-fx-background-color : #ECECEC;" />
       </children>
     </Pane>
     <ImageView fitHeight="49.00001525878906" fitWidth="74.99999237060547" layoutX="204.0" layoutY="180.0" pickOnBounds="true" preserveRatio="false">

@@ -4,8 +4,6 @@ import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -32,12 +30,7 @@ public class Controller {
 
     public void initialize() {
 
-        closeItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                Platform.exit();
-            }
-        });
+        closeItem.setOnAction(e -> Platform.exit());
 
         width.textProperty().addListener((observable, oldValue, newValue) -> {
             result.setText(width.getText() + height.getText() + depth.getText() + weight.getText());

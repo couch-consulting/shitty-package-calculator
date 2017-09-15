@@ -71,4 +71,8 @@ public class Controller {
 
         weightUnitBox.setValue(UWeight.g);
     }
+
+    public double calcShippingCosts (String length, String height, String width, String weigth) {
+        
+    }
 }

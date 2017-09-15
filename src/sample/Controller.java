@@ -33,16 +33,16 @@ public class Controller {
         closeItem.setOnAction(e -> Platform.exit());
 
         width.textProperty().addListener((observable, oldValue, newValue) -> {
-            result.setText(width.getText() + height.getText() + depth.getText() + weight.getText());
+            result.setText(Double.toString(calcShippingCosts(depth.getText(), height.getText(), width.getText(), weight.getText())));
         });
         height.textProperty().addListener((observable, oldValue, newValue) -> {
-            result.setText(width.getText() + height.getText() + depth.getText() + weight.getText());
+            result.setText(Double.toString(calcShippingCosts(depth.getText(), height.getText(), width.getText(), weight.getText())));
         });
         depth.textProperty().addListener((observable, oldValue, newValue) -> {
-            result.setText(width.getText() + height.getText() + depth.getText() + weight.getText());
+            result.setText(Double.toString(calcShippingCosts(depth.getText(), height.getText(), width.getText(), weight.getText())));
         });
         weight.textProperty().addListener((observable, oldValue, newValue) -> {
-            result.setText(width.getText() + height.getText() + depth.getText() + weight.getText());
+            result.setText(Double.toString(calcShippingCosts(depth.getText(), height.getText(), width.getText(), weight.getText())));
         });
 
         //comboboxes
@@ -72,7 +72,32 @@ public class Controller {
         weightUnitBox.setValue(UWeight.g);
     }
 
-    public double calcShippingCosts (String length, String height, String width, String weigth) {
-        
+    public double calcShippingCosts (String length, String height, String width, String weight) {
+        Double d_length = Double.parseDouble(length);
+        Double d_height = Double.parseDouble(height);
+        Double d_width = Double.parseDouble(width);
+        Double d_weight = Double.parseDouble(weight);
+        d_length /= 10;
+        d_height /= 10;
+        d_width /= 10;
+        d_weight /= 1000;
+
+        if (d_length < 30 && d_width < 30 && d_height < 15 && d_weight < 1) {
+            return 4.00;
+        } else if (d_length < 60 && d_width < 30 && d_height < 15 && d_weight < 2 ) {
+            return 4.50;
+        } else if (d_length < 120 && d_width < 60 && d_height < 60 ) {
+            if (d_weight < 5) {
+                return 6.99;
+            } else if ( d_weight < 10) {
+                return 9.49;
+            } else if (d_weight < 31.5) {
+                return 16.49;
+            } else {
+                return 1000000;
+            }
+        } else {
+            return 100000000;
+        }
     }
 }

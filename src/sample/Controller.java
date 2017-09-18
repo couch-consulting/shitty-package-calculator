@@ -4,11 +4,13 @@ import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 
 public class Controller {
@@ -29,6 +31,11 @@ public class Controller {
 
 
     public void initialize() {
+
+        width.addEventFilter(KeyEvent.KEY_TYPED, e -> inputFilter(e));
+        height.addEventFilter(KeyEvent.KEY_TYPED, e -> inputFilter(e));
+        depth.addEventFilter(KeyEvent.KEY_TYPED, e -> inputFilter(e));
+        weight.addEventFilter(KeyEvent.KEY_TYPED, e -> inputFilter(e));
 
         closeItem.setOnAction(e -> Platform.exit());
 
@@ -73,11 +80,10 @@ public class Controller {
     }
 
     public double calcShippingCosts (String length, String height, String width, String weight) {
-        // TODO: FIX THIS
-        Double d_length = Double.parseDouble(length);
-        Double d_height = Double.parseDouble(height);
-        Double d_width = Double.parseDouble(width);
-        Double d_weight = Double.parseDouble(weight);
+        Double d_length = Double.parseDouble(length.isEmpty() ? "0.0" : length);
+        Double d_height = Double.parseDouble(height.isEmpty() ? "0.0" : height);
+        Double d_width = Double.parseDouble(width.isEmpty() ? "0.0" : width);
+        Double d_weight = Double.parseDouble(weight.isEmpty() ? "0.0" : weight);
         d_length /= 10;
         d_height /= 10;
         d_width /= 10;
@@ -99,6 +105,13 @@ public class Controller {
             }
         } else {
             return 100000000;
+        }
+    }
+
+    private void inputFilter(KeyEvent e){
+        char c = e.getCharacter().charAt(0);
+        if (!(Character.isDigit(c) || c == ',')){
+            e.consume();
         }
     }
 }

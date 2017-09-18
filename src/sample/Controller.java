@@ -73,6 +73,7 @@ public class Controller {
     }
 
     public double calcShippingCosts (String length, String height, String width, String weight) {
+        // TODO: FIX THIS
         Double d_length = Double.parseDouble(length);
         Double d_height = Double.parseDouble(height);
         Double d_width = Double.parseDouble(width);
@@ -82,16 +83,16 @@ public class Controller {
         d_width /= 10;
         d_weight /= 1000;
 
-        if (d_length < 30 && d_width < 30 && d_height < 15 && d_weight < 1) {
+        if (d_length <= 30 && d_width <= 30 && d_height <= 15 && d_weight < 1) {
             return 4.00;
-        } else if (d_length < 60 && d_width < 30 && d_height < 15 && d_weight < 2 ) {
+        } else if (d_length <= 60 && d_width <= 30 && d_height <= 15 && d_weight < 2 ) {
             return 4.50;
-        } else if (d_length < 120 && d_width < 60 && d_height < 60 ) {
-            if (d_weight < 5) {
+        } else if (d_length <= 120 && d_width <= 60 && d_height <= 60 ) {
+            if (d_weight <= 5) {
                 return 6.99;
-            } else if ( d_weight < 10) {
+            } else if ( d_weight <= 10) {
                 return 9.49;
-            } else if (d_weight < 31.5) {
+            } else if (d_weight <= 31.5) {
                 return 16.49;
             } else {
                 return 1000000;

@@ -12,7 +12,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 
-
 public class Controller {
     @FXML
     private TextField width, height, depth, weight, result;
@@ -80,7 +79,7 @@ public class Controller {
     }
 
     public double calcShippingCosts (String length, String height, String width, String weight) {
-        PackageConfig Package = new PackageConfig();
+        PackageConfig s = new PackageConfig();
         Double d_length = Double.parseDouble(length.isEmpty() ? "0.0" : length);
         Double d_height = Double.parseDouble(height.isEmpty() ? "0.0" : height);
         Double d_width = Double.parseDouble(width.isEmpty() ? "0.0" : width);
@@ -90,7 +89,7 @@ public class Controller {
         d_width /= 10;
         d_weight /= 1000;
 
-        if (d_length <= Package.small.length && d_width <= 30 && d_height <= 15 && d_weight < 1) {
+        if (d_length <= s.small.length && d_width <= 30 && d_height <= 15 && d_weight < 1) {
             return 4.00;
         } else if (d_length <= 60 && d_width <= 30 && d_height <= 15 && d_weight < 2 ) {
             return 4.50;

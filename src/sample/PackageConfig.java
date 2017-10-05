@@ -8,7 +8,5 @@ public class PackageConfig {
     Package largeOne = new Package(120.0, 60.0, 60.0, 5.0, 6.99);
     Package largeTwo = new Package(120.0, 60.0, 60.0, 10.0, 9.49);
     Package largeThree = new Package(120.0, 60.0, 60.0, 31.5, 16.49);
-    public PackageConfig() {
-    }
 
 }

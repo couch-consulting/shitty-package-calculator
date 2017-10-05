@@ -8,7 +8,6 @@ import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
@@ -112,18 +111,18 @@ public class Controller {
      * @param weight weight from given textfield
      * @return price for output field
      */
-    public double calcShippingCosts(String length, String height, String width, String weight) {
+    private double calcShippingCosts(String length, String height, String width, String weight) {
         Double d_length = Double.parseDouble(length.isEmpty() ? "0.0" : length);
         Double d_height = Double.parseDouble(height.isEmpty() ? "0.0" : height);
         Double d_width = Double.parseDouble(width.isEmpty() ? "0.0" : width);
         Double d_weight = Double.parseDouble(weight.isEmpty() ? "0.0" : weight);
 
-        d_length = numberConversionDimensons(d_length);
-        d_height = numberConversionDimensons(d_height);
-        d_width = numberConversionDimensons(d_width);
+        d_length = numberConversionDimensions(d_length);
+        d_height = numberConversionDimensions(d_height);
+        d_width = numberConversionDimensions(d_width);
         d_weight = numberConversionWeight(d_weight);
 
-
+        // TODO: move comparisons to Package.java
         if (d_length <= small.getLength() && d_width <= small.getWidth() && d_height <= small.getHeight() && d_weight < small.getWeight()) {
             return small.getPrize();
         } else if (d_length <= medium.getLength() && d_width <= medium.getWidth() && d_height <= medium.getHeight() && d_weight < medium.getWeight()) {
@@ -136,21 +135,21 @@ public class Controller {
             } else if (d_weight <= largeThree.getWeight()) {
                 return largeThree.getPrize();
             } else {
-                return 1000000;
+                return 1000000; // arcane magic
             }
         } else {
-            return 100000000;
+            return 100000000; // magic happens here
+                              // TODO: Ask the almighty wizard about a solution
         }
-
     }
 
     /**
-     * calcutes correct weight unit for our calculation returns always kg
+     * calculates correct weight unit for our calculation returns always kg
      *
      * @param weight weight that needs to be transfromed
      * @return weight in kg
      */
-    public double numberConversionWeight(double weight) {
+    private double numberConversionWeight(double weight) {
         String currentValue = weightUnitBox.getValue().toString();
 
         if (currentValue.equals("kg")) {
@@ -163,22 +162,22 @@ public class Controller {
     }
 
     /**
-     * calcutes correct dimenson unit for our calculation returns always kg
+     * calculates correct dimension unit for our calculation returns always kg
      *
-     * @param dimenson dimenson that needs to be transfromed  into cm
-     * @return dimenson in cm
+     * @param dimension dimension that needs to be transformed  into cm
+     * @return dimension in cm
      */
-    public double numberConversionDimensons(double dimenson) {
+    private double numberConversionDimensions(double dimension) {
         String currentValue = lengthUnitBox.getValue().toString();
 
         if (currentValue.equals("cm")) {
-            return dimenson;
+            return dimension;
         } else if (currentValue.equals("mm")) {
-            return dimenson / 10;
+            return dimension / 10;
         } else if (currentValue.equals("m")) {
-            return dimenson * 10;
+            return dimension * 10;
         }
-        return dimenson;
+        return dimension;
     }
 
     /**

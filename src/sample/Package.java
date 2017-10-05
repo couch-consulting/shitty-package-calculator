@@ -1,7 +1,12 @@
 package sample;
 
 /**
- * Created by thore on 9/18/17.
+ * @author Rick, Thore, Lennart
+ * @version beschte Version
+ */
+
+/**
+ * package class that is used to store different package options
  */
 public class Package {
     public Double length;
@@ -9,6 +14,15 @@ public class Package {
     public Double height;
     public Double weight;
     public Double prize;
+
+    /**
+     * package constructer
+     * @param length
+     * @param width
+     * @param height
+     * @param weight
+     * @param prize
+     */
     public Package(Double length, Double width, Double height, Double weight, Double prize) {
         this.length = length;
         this. width = width;

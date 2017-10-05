@@ -1,7 +1,11 @@
 package sample;
 
 /**
- * Created by rossberg on 15.09.2017.
+ * @author Rick, Thore, Lennart
+ * @version beschte Version
+ */
+/**
+ * enum for all length units
  */
 public enum UWeight {
     g, kg

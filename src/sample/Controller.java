@@ -17,7 +17,7 @@ import javafx.scene.input.KeyEvent;
  */
 public class Controller {
     @FXML
-    private TextField width, height, depth, weight, result, result1;
+    private TextField width, height, depth, weight, result, result1,sizeSUPER, weightSUPER;
 
     @FXML
     private Label wUnit, hUnit, dUnit, weightUnit;
@@ -54,11 +54,9 @@ public class Controller {
         weight.addEventFilter(KeyEvent.KEY_TYPED, e -> inputFilter(e));
 
 
-        /** problem with getText
-         *
-         addbutton.setOnAction(e -> addPrice(result.getText(),result1.getText()));
-         clearbutton.setOnAction(e -> clearPrice());
-         */
+        addbutton.setOnAction((event) -> addPrice(result.getText(), result1.getText()));
+        clearbutton.setOnAction((event) -> clearPrice());
+
 
         closeItem.setOnAction(e -> Platform.exit());
 
@@ -90,7 +88,7 @@ public class Controller {
 
         lengthUnitBox.setValue(ULength.cm);
 
-//
+
         for (UWeight u : UWeight.values())
             weightUnitBox.setItems(FXCollections.observableArrayList(UWeight.values()));
 
@@ -135,11 +133,10 @@ public class Controller {
             } else if (d_weight <= largeThree.getWeight()) {
                 return largeThree.getPrize();
             } else {
-                return 1000000; // arcane magic
+                return Double.NaN;
             }
         } else {
-            return 100000000; // magic happens here
-                              // TODO: Ask the almighty wizard about a solution
+            return Double.NaN;
         }
     }
 
@@ -192,17 +189,22 @@ public class Controller {
         }
     }
 
-    /**
-     * does not work dont know why
-     private void clearPrice(){
-     result1.setText("Added Price");
-     }
 
-     private void addPrice(String resultText, String result1Text){
-     Double currentResult = Double.parseDouble(resultText);
-     Double currentResult1 = Double.parseDouble(result1Text);
-     Double resulltfinal = currentResult + currentResult1;
-     result1.setText(resulltfinal.toString());
-     }
-     */
+    private void clearPrice() {
+        result1.setText("Added Price");
+    }
+
+    private void addPrice(String resultText, String result1Text) {
+        
+
+
+        Double currentResult1 = 0.0;
+        Double currentResult = Double.parseDouble(resultText);
+        if(!result1Text.equals("Added Price")){
+                   currentResult1 = Double.parseDouble(result1Text);
+        }
+        Double resulltfinal = currentResult + currentResult1;
+        result1.setText(resulltfinal.toString());
+    }
+
 }

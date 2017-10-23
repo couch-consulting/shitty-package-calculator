@@ -1,7 +1,7 @@
 package sample;
 
 /**
- * @author Rick, Thore, Lennart
+ * @author Rick, Thore, Lennerd
  * @version beschte Version
  */
 
@@ -69,5 +69,9 @@ public class Package {
 
     public void setPrize(Double prize) {
         this.prize = prize;
+    }
+
+    public Boolean comparePackage(Double length, Double width, Double height, Double weight, Package sizeType) {
+        return false;
     }
 }

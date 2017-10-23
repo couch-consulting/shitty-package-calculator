@@ -195,7 +195,7 @@ public class Controller {
     }
 
     private void addPrice(String resultText, String result1Text) {
-        
+
 
 
         Double currentResult1 = 0.0;

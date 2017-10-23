@@ -9,5 +9,10 @@ package sample;
  * enum for all length units
  */
 public enum ULength {
-    mm, cm, m
+    mm, cm, m;
+
+    /**
+     * Created by puruckel on 23.10.2017.
+     */
+
 }

@@ -14,5 +14,6 @@ public class calcShippingCosts implements calcShippingCostsCalculatable {
     @Override
     public double calcShippingCosts(List<Packet> packets) {
         // Hate everything
+        return Double.NaN;
     }
 }

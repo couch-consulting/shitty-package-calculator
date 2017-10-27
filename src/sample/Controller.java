@@ -181,7 +181,8 @@ public class Controller {
      */
     private void addSuperPackage() {
         superPackage.add(tempPacket.get(0));
-        result1.setText(shippingCalculator.calcShippingCosts(superPackage));
+        Double currentPrize = shippingCalculator.calcShippingCosts(superPackage);
+        result1.setText(currentPrize.toString());
     }
 
 }

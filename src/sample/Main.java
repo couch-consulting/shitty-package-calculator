@@ -1,7 +1,10 @@
 /**
- * @author Rick, Thore, Lennart
- * @version beschte Version
+ * @author Rick
+ * @author Thore
+ * @author Lennerd
+ * @version otter
  */
+
 package sample;
 
 import javafx.application.Application;
@@ -21,7 +24,7 @@ public class Main extends Application {
      */
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("umfall.fxml"));
-        primaryStage.setTitle("Shitty Package Calculator");
+        primaryStage.setTitle("Shitty Packet Calculator");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

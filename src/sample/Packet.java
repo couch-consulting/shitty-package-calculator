@@ -1,14 +1,16 @@
 package sample;
 
 /**
- * @author Rick, Thore, Lennerd
- * @version beschte Version
+ * @author Rick
+ * @author Thore
+ * @author Lennerd
+ * @version otter
  */
 
 /**
  * package class that is used to store different package options
  */
-public class Package {
+public class Packet {
     public Double length;
     public Double width;
     public Double height;
@@ -23,12 +25,12 @@ public class Package {
      * @param weight
      * @param prize
      */
-    public Package(Double length, Double width, Double height, Double weight, Double prize) {
-        this.length = length;
-        this. width = width;
-        this.height = height;
-        this.weight = weight;
-        this.prize = prize;
+    public Packet(Double length, Double width, Double height, Double weight, Double prize) {
+        this.setLength(length);
+        this.setWidth(width);
+        this.setHeight(height);
+        this.setWeight(weight);
+        this.setPrize(prize);
     }
 
     public Double getLength() {
@@ -71,7 +73,7 @@ public class Package {
         this.prize = prize;
     }
 
-    public Boolean comparePackage(Double length, Double width, Double height, Double weight, Package sizeType) {
+    public Boolean comparePackage(Double length, Double width, Double height, Double weight, Packet sizeType) {
         return false;
     }
 }
